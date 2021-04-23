@@ -1,0 +1,31 @@
+<h1>List products</h1>
+
+<a [routerLink]="'/song/create'" class="btn btn-info">Create new Song</a>
+<hr>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Avatar</th>
+    <th scope="col">MP3</th>
+    <th scope="col" colspan="2">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of songs">
+    <td>{{p.nameSong}}</td>
+    <td>
+      <img src="'{{p.avatar}}'" alt="Ảnh">
+    </td>
+    <td>
+      <audio src="'{{p.fileMp3}}'"></audio>
+    </td>
+    <td>
+      <button type="button" class="btn btn-outline-warning" [routerLink]="'/edit/'+p.id">Edit</button>
+      <button type="button" class="btn  btn-outline-danger" (click)="deleteSong(p.id)">Delete</button>
+    </td>
+    <td>
+    </td>
+  </tr>
+  </tbody>
+</table>
